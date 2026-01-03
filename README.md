@@ -91,3 +91,15 @@ msiexec.exe /i wazuh-agent.msi /q WAZUH_MANAGER='10.0.0.2'
 
 # Starting the agent service
 NET START Wazuh
+```
+### **Verification Evidence**
+
+| **1. Agent Enrollment** | **2. Communication Handshake** |
+| :---: | :---: |
+| <img src="assets/ActiveAgent.png" width="400"> | <img src="assets/HandshakeLogs.jpg" width="400"> |
+| *Confirmed "Active" status in the Wazuh Dashboard.* | *Verified TCP/1514 connection in ossec.log.* |
+
+| **3. Baseline Audit** | **4. Telemetry Ingestion** |
+| :---: | :---: |
+| <img src="assets/SecurityConfig.jpg" width="400"> | <img src="assets/EventDashboard.png" width="400"> |
+| *Automated SCA scan identifying OS vulnerabilities.* | *Real-time Windows Event logs arriving at the SIEM.* |
