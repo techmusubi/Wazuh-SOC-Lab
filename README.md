@@ -11,6 +11,9 @@ To establish a controlled environment for security monitoring, I configured a pr
 
 ### 2. Wazuh Manager Deployment
 * **Docker Orchestration:** Utilized a custom `docker-compose.yml` to provision the Wazuh indexer, manager, and dashboard.
+
+![Docker Compose YAML](assets/DockerYAML.png)
+
 * **Service Verification:** Successfully initialized the containers and verified all management services are in a "Running" state.
 
 ![Manager Deployment Result](assets/ManagerResult.png)
@@ -27,6 +30,8 @@ The VM was configured to mirror a high-performance endpoint for stable security 
 * **Network Integrity:** Connected to the **`SOC-Internal`** private virtual switch to ensure isolation.
 
 ![VM Resource Allocation](assets/Memory.png)
+
+![Isolated Network Configuration](assets/Network.png)
 
 * **Security Layer:** Enabled **Secure Boot** and the **Trusted Platform Module (TPM)** within Hyper-V settings to meet Windows 11 security standards.
 
