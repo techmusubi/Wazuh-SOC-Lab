@@ -50,3 +50,25 @@ Instead of restarting, I intercepted the installation at the language selection 
 ![Registry Bypass Success](assets/Regedit.png)
 
 This allowed the installer to successfully initialize the virtual disk and proceed with the OS deployment.
+
+---
+
+## Phase 3: Connectivity & Endpoint Hardening
+With the Windows 11 endpoint provisioned, I established a static networking scheme and implemented host-based security controls to ensure reliable communication with the Wazuh Manager.
+
+### 1. Static IPv4 Configuration
+To prevent communication drops in the isolated lab environment, I manually assigned a static IP address to the Windows endpoint.
+* **IP Address:** `10.0.0.3`
+* **Subnet Mask:** `255.255.255.0`
+* **Default Gateway:** Left blank to ensure isolation within the `SOC-Internal` switch.
+
+![Windows IPv4 Configuration](assets/W11_IP.png)
+
+### 2. Firewall Whitelisting (Principle of Least Privilege)
+Instead of disabling the Windows Firewall, I created a targeted **Inbound Rule** named `Wazuh Manager Whitelist`.
+* **Rule Logic:** The rule is set to **Allow** the connection specifically for the Wazuh agent services.
+* **Scope Control:** Restricted the "Remote IP Address" field strictly to the Wazuh Manager's IP (`10.0.0.2`), preventing unauthorized access from other potential local sources.
+
+![Firewall Inbound Rule List](assets/Inbound_Rules.png)
+
+![Firewall Scope Settings](assets/Firewall_Rule.png)
