@@ -11,7 +11,7 @@ To establish a controlled environment for security monitoring, I configured a pr
 
 ### 2. Wazuh Manager Deployment
 * **Docker Orchestration:** Utilized a custom `docker-compose.yml` to provision the Wazuh indexer, manager, and dashboard.
-* **Service Verification:** Successfully initialized the containers and verified that all management services were in a "Running" state.
+* **Service Verification:** Successfully initialized the containers and verified all management services are in a "Running" state.
 
 ![Manager Deployment Result](assets/ManagerResult.png)
 
@@ -21,15 +21,16 @@ To establish a controlled environment for security monitoring, I configured a pr
 I deployed a Windows 11 Home VM to serve as the target endpoint for telemetry collection. This required manual environment manipulation to bypass modern hardware requirements.
 
 ### 1. Hardware Specification & Configuration
-The VM was configured to mirror a high-performance endpoint to ensure stability during intensive security auditing:
+The VM was configured to mirror a high-performance endpoint for stable security auditing:
 * **Memory:** Allocated **8GB of RAM** (8192 MB) to prevent performance bottlenecks.
 * **Processor:** Assigned **8 Virtual Processors** for smooth OS operation.
+* **Network Integrity:** Connected to the **`SOC-Internal`** private virtual switch to ensure isolation.
 
 ![VM Resource Allocation](assets/Memory.png)
 
 * **Security Layer:** Enabled **Secure Boot** and the **Trusted Platform Module (TPM)** within Hyper-V settings to meet Windows 11 security standards.
 
-![Security Configuration](assets/Security.png)
+![Hyper-V Security Settings](assets/Security.png)
 
 ### 2. Troubleshooting: Bypassing System Requirements
 During the initial boot, the installer triggered a "This PC doesn't meet system requirements" error.
