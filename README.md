@@ -21,12 +21,15 @@ To establish a controlled environment for security monitoring, I configured a pr
 I deployed a Windows 11 Home VM to serve as the target endpoint for telemetry collection. This required manual environment manipulation to bypass modern hardware requirements.
 
 ### 1. Hardware Specification & Configuration
-The VM was configured to mirror a high-performance endpoint for stable security auditing:
+The VM was configured to mirror a high-performance endpoint to ensure stability during intensive security auditing:
 * **Memory:** Allocated **8GB of RAM** (8192 MB) to prevent performance bottlenecks.
 * **Processor:** Assigned **8 Virtual Processors** for smooth OS operation.
-* **Security Layer:** Enabled **Secure Boot** within Hyper-V settings to meet Windows 11 security standards.
 
 ![VM Resource Allocation](assets/Memory.png)
+
+* **Security Layer:** Enabled **Secure Boot** and the **Trusted Platform Module (TPM)** within Hyper-V settings to meet Windows 11 security standards.
+
+![Security Configuration](assets/Security.png)
 
 ### 2. Troubleshooting: Bypassing System Requirements
 During the initial boot, the installer triggered a "This PC doesn't meet system requirements" error.
