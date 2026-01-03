@@ -62,7 +62,7 @@ To prevent communication drops in the isolated lab environment, I manually assig
 * **Subnet Mask:** `255.255.255.0`
 * **Default Gateway:** Left blank to ensure isolation within the `SOC-Internal` switch.
 
-![Windows IPv4 Configuration](assets/W11_IP.png)
+![Windows IPv4 Configuration](assets/W11_IP.jpg)
 
 ### 2. Firewall Whitelisting (Principle of Least Privilege)
 Instead of disabling the Windows Firewall, I created a targeted **Inbound Rule** named `Wazuh Manager Whitelist`.
