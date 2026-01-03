@@ -72,3 +72,22 @@ Instead of disabling the Windows Firewall, I created a targeted **Inbound Rule**
 ![Firewall Inbound Rule List](assets/Inbound_Rules.png)
 
 ![Firewall Scope Settings](assets/Firewall_Rule.png)
+
+## Phase 4: Endpoint Telemetry & SIEM Integration
+
+This phase involved establishing the security pipeline between the Windows 11 target and the Wazuh Manager. By deploying the agent into an isolated environment, I successfully initiated real-time log ingestion and automated security auditing.
+
+### **Key Objectives**
+* Deploy Wazuh Agent 4.9.2 to a hardened, isolated Windows 11 endpoint.
+* Verify secure communication over the SOC telemetry port (**TCP/1514**).
+* Establish a security baseline via automated Security Configuration Assessment (SCA).
+
+### **Deployment Methodology**
+To maintain lab integrity and network isolation, the agent was deployed via the command line, pointing directly to the internal manager IP. Following the transfer of the binary, the following commands were executed in PowerShell (Admin):
+
+```powershell
+# Silent installation pointing to the Ubuntu Manager
+msiexec.exe /i wazuh-agent.msi /q WAZUH_MANAGER='10.0.0.2'
+
+# Starting the agent service
+NET START Wazuh
