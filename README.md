@@ -103,3 +103,33 @@ NET START Wazuh
 | :---: | :---: |
 | <img src="assets/SecurityConfig.jpg" width="400"> | <img src="assets/EventDashboard.png" width="400"> |
 | *Automated SCA scan identifying OS vulnerabilities.* | *Real-time Windows Event logs arriving at the SIEM.* |
+
+## Phase 5: Detection Validation & MITRE ATT&CK Mapping
+
+This phase focused on validating the telemetry pipeline by simulating attacker reconnaissance. By executing discovery commands on the target, I verified the SIEM's ability to correlate raw logs into actionable intelligence mapped to the MITRE ATT&CK framework.
+
+### **Key Objectives**
+* Enable Advanced Audit Policies and Command Line visibility on the Windows endpoint.
+* Simulate a Discovery/Enumeration attack using native Windows binaries.
+* Validate the ingestion and categorization of telemetry within the Wazuh Dashboard.
+
+### **Hardening & Simulation Methodology**
+To capture the "whoami" and "net user" commands, I had to override default Windows logging limitations. The following commands were executed in PowerShell (Admin) to enable deep visibility:
+
+```powershell
+# Enable Audit Process Creation to track program execution
+auditpol /set /subcategory:"Process Creation" /success:enable
+
+# Inject Registry key to capture the full command-line arguments
+reg add "HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\System\Audit" /v ProcessCreationIncludeCmdLine_Enabled /t REG_DWORD /d 1 /f
+
+# Execute simulated attack commands to trigger alerts
+whoami; net user; net localgroup administrators; systeminfo
+```
+
+### **Verification Evidence**
+
+| **1. Attack Simulation** | **2. Local Event Logging** | **3. SIEM Ingestion |
+| :---: | :---: | :---: |
+| <img src="assets/ExploitCommands.png" width="300"> | <img src="assets/EventViewerLog.png" width="300"> | <img src="assets/EventDashboard.png" width="300"> |
+| *Executing discovery commands on the target VM.* | *Confirmed Event ID 4688 with command-line data.* | *Real-time telemetry arrival in the Wazuh Dashboard.* |
