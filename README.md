@@ -1,3 +1,13 @@
+# Wazuh SOC Lab (Legacy Build)
+
+This repository documents my first attempt at building a SIEM monitoring lab.
+
+The environment was later rebuilt after the hypervisor installation overwrote my Windows environment.
+
+A newer and improved lab can be found here;
+
+-Enterprise Active Directory + Wazuh Lab (link later)
+
 # SOC Automation Lab: Wazuh SIEM Deployment
 
 ## Phase 1: Network & Manager Setup
