@@ -1,12 +1,17 @@
-# Wazuh SOC Lab (Legacy Build)
+⚠️ Project Status: Legacy Lab
 
-This repository documents my first attempt at building a SIEM monitoring lab.
+This repository documents my original Wazuh SOC lab environment.
 
-The environment was later rebuilt after the hypervisor installation overwrote my Windows environment.
+The lab was rebuilt after installing Proxmox VE overwrote my previous
+Windows host system in February 2026. While the original virtual machines
+were lost, this repository remains as documentation of the initial SIEM
+deployment and monitoring setup.
 
-A newer and improved lab can be found here;
+A newer and improved version of this environment is currently being
+developed using Proxmox virtualization, Active Directory infrastructure,
+and Wazuh monitoring.
 
--Enterprise Active Directory + Wazuh Lab (link coming soon)
+➡ New lab: [link coming soon]
 
 # SOC Automation Lab: Wazuh SIEM Deployment
 
