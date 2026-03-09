@@ -6,7 +6,7 @@ The environment was later rebuilt after the hypervisor installation overwrote my
 
 A newer and improved lab can be found here;
 
--Enterprise Active Directory + Wazuh Lab (link later)
+-Enterprise Active Directory + Wazuh Lab (link coming soon)
 
 # SOC Automation Lab: Wazuh SIEM Deployment
 
